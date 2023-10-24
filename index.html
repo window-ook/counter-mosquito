@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter Mosquito</title>
+    <meta name="author" content="W00k" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- JavaScript -->
+    <script type="module" src="src/main.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/7d8919f8b4.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- favicon 에러 -->
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+  </head>
+  <body>
+    <!-- 게임화면 -->
+    <section class="game">
+      <header>
+        <button class="game__button">
+          <i class="fas fa-play"></i>
+        </button>
+        <span class="game__timer"> 0:0 </span>
+        <div class="game__score">
+          <span class="game__score--text">0</span>
+        </div>
+      </header>
+      <section class="game__field"></section>
+    </section>
+    <!-- 팝업박스 -->
+    <section class="pop-up pop-up--hide">
+      <header>
+        <button class="pop-up__replay">
+          <i class="fas fa-redo"></i>
+        </button>
+        <span class="pop-up__message">You have won!</span>
+      </header>
+    </section>
+  </body>
+</html>
