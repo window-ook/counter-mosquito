@@ -4,7 +4,6 @@ import { GameBuilder, Reason } from './game.js';
 import PopUp from './popup.js';
 import * as sound from './sound.js';
 
-sound.playrobbyBg();
 const game = new GameBuilder().gameDuration(5).carrotCount(5).build();
 
 game.setGameStopListener((reason) => {
