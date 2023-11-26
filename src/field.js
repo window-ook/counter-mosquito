@@ -5,12 +5,12 @@ import * as sound from './sound.js';
 const MOSQUITO_SIZE = 55;
 
 export const ItemType = Object.freeze({
-  carrot: 'carrot',
+  mosquito: 'mosquito',
 });
 
 export class Field {
-  constructor(carrotCount) {
-    this.carrotCount = carrotCount;
+  constructor(mosquitoCount) {
+    this.mosquitoCount = mosquitoCount;
     this.field = document.querySelector('.game__field');
     this.fieldRect = this.field.getBoundingClientRect();
     this.field.addEventListener('click', (event) => this.onClick(event));
@@ -19,8 +19,8 @@ export class Field {
   init() {
     this.field.innerHTML = ``;
     this._addItem(
-      'carrot',
-      this.carrotCount,
+      'mosquito',
+      this.mosquitoCount,
       'img/mosquito_left.png',
       'img/mosquito_right.png'
     );
@@ -54,10 +54,10 @@ export class Field {
 
   onClick(event) {
     const target = event.target;
-    if (target.matches('.carrot')) {
+    if (target.matches('.mosquito')) {
       target.remove();
       sound.playZapper();
-      this.onItemClick && this.onItemClick(ItemType.carrot);
+      this.onItemClick && this.onItemClick(ItemType.mosquito);
     } else if (target.matches('.game__field')) {
       this.onItemClick && this.onItemClick(ItemType.game__field);
     }

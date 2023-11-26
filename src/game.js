@@ -15,23 +15,23 @@ export class GameBuilder {
     return this;
   }
 
-  carrotCount(num) {
-    this.carrotCount = num;
+  mosquitoCount(num) {
+    this.mosquitoCount = num;
     return this;
   }
 
   build() {
     return new Game(
       this.gameDuration, //
-      this.carrotCount //
+      this.mosquitoCount //
     );
   }
 }
 
 class Game {
-  constructor(gameDuration, carrotCount) {
+  constructor(gameDuration, mosquitoCount) {
     this.gameDuration = gameDuration;
-    this.carrotCount = carrotCount;
+    this.mosquitoCount = mosquitoCount;
 
     this.gameButton = document.querySelector('.game__button');
     this.gameTimer = document.querySelector('.game__timer');
@@ -45,7 +45,7 @@ class Game {
       }
     });
 
-    this.gameField = new Field(carrotCount);
+    this.gameField = new Field(mosquitoCount);
     this.gameField.setClickListener(this.onItemClick);
 
     this.started = false;
@@ -79,10 +79,10 @@ class Game {
     if (!this.started) {
       return;
     }
-    if (item === ItemType.carrot) {
+    if (item === ItemType.mosquito) {
       this.score++;
       this.updateScoreBoard();
-      if (this.score === this.carrotCount) {
+      if (this.score === this.mosquitoCount) {
         this.stop(Reason.win);
       }
     } else if (item === ItemType.gameField) {
@@ -97,13 +97,12 @@ class Game {
   }
 
   updateScoreBoard() {
-    this.gameScore.innerText = this.carrotCount - this.score;
+    this.gameScore.innerText = this.mosquitoCount - this.score;
   }
 
   showStopButton() {
-    const icon = this.gameButton.querySelector('.fas');
-    icon.classList.remove('fa-play');
-    icon.classList.add('fa-stop');
+    const btnText = this.gameButton.querySelector('.game__button_text');
+    btnText.innerText = 'STOP';
     this.gameButton.style.visibility = 'visible';
   }
 
@@ -119,7 +118,9 @@ class Game {
     this.timer = setInterval(() => {
       if (remainingTimeSec <= 0) {
         clearInterval(this.timer);
-        this.stop(this.carrotCount === this.score ? Reason.win : Reason.cancel);
+        this.stop(
+          this.mosquitoCount === this.score ? Reason.win : Reason.cancel
+        );
         return;
       }
       this.updateTimerText(--remainingTimeSec);

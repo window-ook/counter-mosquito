@@ -1,15 +1,15 @@
 /* Global */
 :root {
   /* Font size */
-  --font-button: 24px;
-  --font-timer: 32px;
-  --font-score: 36px;
+  --font-header: 32px;
+  --font-button: 28px;
 
   /* Space */
   --margin-between: 8px;
   --margin-field: 40px;
   --icon-width: 60px;
   --icon-height: 60px;
+  --button-height: 25px;
 
   /* Color */
   --color-background: wheat;
@@ -19,6 +19,13 @@
   /* border */
   --border: 4px;
   --border-radius: 20px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Bebas Neue', sans-serif;
 }
 
 body {
@@ -52,27 +59,39 @@ button:hover {
 header {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   padding: 20px;
 }
 
 .game__button {
+  align-self: center;
   width: var(--icon-width);
-  height: var(--icon-height);
-  background-color: var(--color-background);
-  border: var(--border) solid black;
+  height: var(--button-height);
+  background-color: transparent;
   font-size: var(--font-button);
-  border-radius: var(--border-radius);
+  color: var(--color-white);
+  position: relative;
+}
+
+.game__button_text {
+  font-size: var(--font-button);
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .game__timer {
-  width: 100px;
-  background-color: var(--color-white);
+  width: 80px;
+  background-color: #000000;
+  color: var(--color-white);
+  opacity: 0.8;
+
   text-align: center;
   margin-top: var(--margin-between);
   border: var(--border) solid black;
-  border-radius: var(--border-radius);
-  font-size: var(--font-timer);
+  font-size: var(--font-header);
   visibility: hidden;
   user-select: none;
   cursor: auto;
@@ -82,18 +101,18 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   width: var(--icon-width);
   height: var(--icon-height);
-  text-align: center;
-  background-color: var(--color-score);
-  border-radius: 50%;
+  background-color: transparent;
+  color: #6f7ff2;
+  font-size: var(--font-header);
+  font-weight: bold;
   margin-top: var(--margin-between);
-  color: var(--color-white);
-  font-size: var(--font-score);
-  border: var(--border) solid black;
   visibility: hidden;
   user-select: none;
   cursor: auto;
+  animation: blink-effect 1s step-end infinite;
 }
 
 .game__field {
@@ -116,7 +135,7 @@ header {
 /* Pop-up Box */
 .pop-up {
   display: block;
-  width: 400px;
+  width: 500px;
   height: 150px;
   margin: auto;
   background-color: #00000090;
@@ -135,11 +154,22 @@ header {
   width: 60px;
   height: 60px;
   font-size: 24px;
-  background-color: wheat;
-  border: 2px solid black;
+  color: var(--color-white);
+  background-color: transparent;
+  border: 2px solid transparent;
   border-radius: 50%;
 }
 
+.pop-up__replay:hover {
+  color: #fcb900;
+}
+
 .pop-up__message {
-  font-size: var(--font-button);
+  font-size: var(--font-header);
+}
+
+@keyframes blink-effect {
+  50% {
+    opacity: 0;
+  }
 }

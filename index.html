@@ -7,6 +7,11 @@
     <meta name="author" content="W00k" />
     <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
     <!-- JavaScript -->
     <script type="module" src="src/main.js" defer></script>
     <script
@@ -14,16 +19,14 @@
       crossorigin="anonymous"
     ></script>
     <!-- favicon 에러 -->
-    <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
-    <!-- 로비 배경음 -->
-    <audio src="/sound/bg.mp3" autoplay></audio>
+    <link rel="icon" href="./img/favicon_mo.png" />
   </head>
   <body>
     <!-- 게임화면 -->
     <section class="game">
       <header>
         <button class="game__button">
-          <i class="fas fa-play"></i>
+          <span class="game__button_text play">PLAY</span>
         </button>
         <span class="game__timer"> 0:0 </span>
         <div class="game__score">

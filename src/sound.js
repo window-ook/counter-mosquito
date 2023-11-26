@@ -7,7 +7,16 @@ const missSound = new Audio('./sound/scream.mp3');
 const winSound = new Audio('./sound/win.mp3');
 const robbyBgSound = new Audio('./sound/bg.mp3');
 winSound.volume = 0.5;
-robbyBgSound.volume = 0.3;
+robbyBgSound.volume = 0.2;
+
+// 로비 배경음
+document.addEventListener('DOMContentLoaded', () => {
+  // playrobbyBg();
+});
+
+export function bodyClick() {
+  body.removeEventListener('click', bodyClick);
+}
 
 export function playZapper() {
   playSound(zapperSound);
@@ -21,18 +30,14 @@ export function playLeave() {
 export function playWin() {
   playSound(winSound);
 }
-
-export function playrobbyBg() {
-  playSound(robbyBgSound);
-}
-export function stoprobbyBG() {
-  stopSound(robbyBgSound);
-}
 export function playBackground() {
   playSound(bgSound);
 }
 export function stopBackground() {
   stopSound(bgSound);
+}
+export function stoprobbyBG() {
+  stopSound(robbyBgSound);
 }
 
 function playSound(sound) {
