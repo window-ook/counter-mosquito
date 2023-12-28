@@ -1,7 +1,7 @@
 # Counter Mosquito ⚡🦟
 
 💥모기는 테러리스트
-![Thumbnail](<img\Counter Mosquito - Chrome 2023-12-28 오후 12_52_35.png>)
+![썸네일](thumbnail.png)
 
 ## 🧾 클릭 이벤트를 이용한 간단한 게임
 
