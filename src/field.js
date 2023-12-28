@@ -14,6 +14,7 @@ export class Field {
     this.field = document.querySelector('.game__field');
     this.fieldRect = this.field.getBoundingClientRect();
     this.field.addEventListener('click', (event) => this.onClick(event));
+    this.isClickable = true;
   }
 
   init() {
@@ -53,13 +54,16 @@ export class Field {
   }
 
   onClick(event) {
+    if (!this.isClickable) {
+      return; // 게임이 종료된 경우 클릭 무시
+    }
     const target = event.target;
     if (target.matches('.mosquito')) {
       target.remove();
       sound.playZapper();
       this.onItemClick && this.onItemClick(ItemType.mosquito);
     } else if (target.matches('.game__field')) {
-      this.onItemClick && this.onItemClick(ItemType.game__field);
+      this.onItemClick && this.onItemClick(ItemType.gameField);
     }
   }
 }

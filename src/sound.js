@@ -5,9 +5,7 @@ const leaveSound = new Audio('./sound/leave.mp3');
 const bgSound = new Audio('./sound/buzz.mp3');
 const missSound = new Audio('./sound/scream.mp3');
 const winSound = new Audio('./sound/win.mp3');
-const robbyBgSound = new Audio('./sound/bg.mp3');
 winSound.volume = 0.5;
-robbyBgSound.volume = 0.2;
 
 // 로비 배경음
 document.addEventListener('DOMContentLoaded', () => {
@@ -35,9 +33,6 @@ export function playBackground() {
 }
 export function stopBackground() {
   stopSound(bgSound);
-}
-export function stoprobbyBG() {
-  stopSound(robbyBgSound);
 }
 
 function playSound(sound) {
