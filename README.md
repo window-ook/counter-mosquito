@@ -10,7 +10,7 @@
 > 11.23 - 버튼과 폰트의 스타일링 변경
 > 12.28 - 초기 화면에 로비 배경음 추가
 
-## 🥞 스택
+## 🥞 Stack
 
 <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white">
 
