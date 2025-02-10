@@ -4,7 +4,14 @@ import { GameBuilder, Reason } from './game.js';
 import PopUp from './popup.js';
 import * as sound from './sound.js';
 
-const game = new GameBuilder().gameDuration(2).mosquitoCount(5).build();
+// Get user input for game settings
+const gameDuration = parseInt(prompt('제한 시간을 설정하세요', '10')) || 10;
+const mosquitoCount = parseInt(prompt('모기의 수를 설정하세요', '5')) || 5;
+
+const game = new GameBuilder()
+  .gameDuration(gameDuration)
+  .mosquitoCount(mosquitoCount)
+  .build();
 
 game.setGameStopListener((reason) => {
   let message;
